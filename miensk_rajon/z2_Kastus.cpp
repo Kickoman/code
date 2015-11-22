@@ -40,7 +40,7 @@ bool notNumber(char x)
 
 int main()
 {
-  ios_base::sync_with_stdio(0);
+ // ios_base::sync_with_stdio(0);
 #ifdef LOCAL
   freopen("task.in", "r", stdin);
   freopen("task.out", "w", stdout);
