@@ -80,16 +80,6 @@ int main()
           user[i].push_back((int) x - '0');
     }
 
-    {
-      for (int i = 0; i < 9; ++i)
-      {
-        for (int j = 0; j < 9; ++j)
-          printf("%5d", user[i][j]);
-        printf("\n");
-      }
-      printf("\n\n");
-    }
-
     bool ok = true;
 
     for (int i = 0; i < 9; ++i)
