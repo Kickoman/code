@@ -1,7 +1,19 @@
 # depslib dependency file v1.0
-1448208073 source:/home/kanstancin/Dakumenty/Prajekty/Code/miensk_rajon/home/z1/main.cpp
+1448219601 source:/home/kanstancin/Dakumenty/Prajekty/Code/miensk_rajon/home/z1/main.cpp
 	<iostream>
 	<cstdio>
-	<vector>
+	<ios>
+	<fstream>
+	<cstdlib>
+	<stdlib.h>
 	<algorithm>
+	<string>
+	<vector>
+	<stack>
+	<set>
+	<map>
+	<queue>
+	<deque>
+	<iomanip>
+	<cmath>
 
