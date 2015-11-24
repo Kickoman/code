@@ -87,7 +87,6 @@ int main()
         if ((et[i][j] > 0 && et[i][j] != user[i][j]) || user[i][j] < 0)
           ok = false;
 
-//    cerr << ok << endl;
     for (int i = 0; i < 9 && ok; ++i)
     {
       vector<int> non(10, 0);
@@ -100,22 +99,9 @@ int main()
 
     for (int j = 0; j < 9 && ok; ++j)
     {
-//      cerr << j << " ";
       vector<int> non(10, 0);
       for (int i = 0; i < 9; ++i)
         non[user[i][j]]++;
-      for (int i = 1; i < 10; ++i)
-        if (non[i] != 1)
-          ok = false;
-    }
-//    cerr << ok << endl;
-
-    for (int o = 0; o < 7 && ok; o += 3)
-    {
-      vector<int> non(10, 0);
-      for (int i = o; i < o + 3; ++i)
-        for (int j = o; j < o + 3; ++j)
-          non[user[i][j]]++;
       for (int i = 1; i < 10; ++i)
         if (non[i] != 1)
           ok = false;
