@@ -36,7 +36,7 @@ int main()
       if (i == 0 || j == 0)
         f[i][j] = 0;
       else
-        if ((long long) sqrt(x[i] * y[j]) * (long long) sqrt(x[i] * y[j]) == x[i] * y[j])
+        if ((long long) sqrt(x[i] * y[j]) * () == sqrt(x[i] * y[j]))
         {
           cerr << i << " " << j << " " << x[i] << " " << y[j] << endl;
           f[i][j] = f[i - 1][j - 1] + 1;

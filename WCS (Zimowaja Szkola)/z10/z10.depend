@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1448800882 source:e:\костя\code\wcs (zimowaja szkola)\z10\main.cpp
+	<iostream>
+	<cstdio>
+	<vector>
+	<cmath>
+
