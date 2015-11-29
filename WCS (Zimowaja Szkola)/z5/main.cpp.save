@@ -47,14 +47,26 @@ int main()
     for (int j = 0; j < b; ++j)
     {
       c *= pr[i];
-      if (c > x )
+      if (c > n)
       {
-        cout << ans;
-        return 0;
+        cout << a
       }
     }
-    ans++;
   }
   cout << ans;
+
+//  for (long long i = 2; i < (long long) sqrt(sqrt(INFll)); ++i)
+//  {
+//    if (pw(i, b) > x)
+//      break;
+//    if (prime(i))
+//      ans++;
+//  }
+
   return 0;
 }
+
+
+/*
+nDiv = (B1 + 1) * (B2 + 1) * ... * (Bn + 1)
+*/
