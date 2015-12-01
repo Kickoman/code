@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1448791019 source:e:\костя\code\wcs (zimowaja szkola)\z3\main.cpp
+	<iostream>
+	<cstdio>
+	<queue>
+
