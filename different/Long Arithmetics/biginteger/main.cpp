@@ -6,6 +6,13 @@ using namespace std;
 
 typedef vector<int> bigInteger;
 
+bigInteger delZeros(bigInteger x)
+{
+    while (x.size() > 1 && x.back() == 0)
+        x.pop_back();
+    return x;
+}
+
 bigInteger getBig()
 {
     bigInteger res;
@@ -83,7 +90,7 @@ bigInteger multiBig(bigInteger a, bigInteger b)
 
 bigInteger subBig(bigInteger a, bigInteger b)
 {
-    bigInteger res(max(a.size(), b.size()));
+    bigInteger res(max(a.size(), b.size()), 0);
     int lng = max(a.size(), b.size());
     while (a.size() < lng)
         a.push_back(0);
@@ -92,17 +99,27 @@ bigInteger subBig(bigInteger a, bigInteger b)
     if (compBig(a, b) == -1)
         swap(a, b);
     if (compBig(a, b) == 0)
-        return ({0});
-
+        return delZeros(res);
+    int cur = 0;
+    for (int i = 0; i < lng; ++i)
+    {
+        int tmp = 0;
+        a[i] -= cur;
+        cur = 0;
+        if (a[i] < b[i])
+            cur++,
+            a[i] += 10;
+        res[i] = a[i] - b[i];
+    }
+    return delZeros(res);
 }
 
 int main()
 {
     freopen("task.in", "r", stdin);
-    freopen("task.out", "w", stdout);
+//    freopen("task.out", "w", stdout);
     bigInteger a = getBig(), b = getBig();
 //    putBig(b);
-    putBig(multiBig(a, b));
-    printf("\n%d\n", compBig(a, b));
+    putBig(subBig(a, b));
     return 0;
 }
