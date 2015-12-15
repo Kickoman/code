@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1450158271 source:d:\projects\biginteger\main.cpp
+	<iostream>
+	<cstdio>
+	<vector>
+
