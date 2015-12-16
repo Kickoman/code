@@ -18,7 +18,6 @@ bigInteger getBig()
     bigInteger res;
     string s;
     cin >> s;
-//    res.resize(s.size());
     for (int i = s.size() - 1; i > -1; --i)
         res.push_back(s[i] - '0');
     return res;
@@ -114,12 +113,23 @@ bigInteger subBig(bigInteger a, bigInteger b)
     return delZeros(res);
 }
 
+bigInteger bigPow(bigInteger a, int b)
+{
+    bigInteger res(1, 1);
+    for (int i = 0; i < b; ++i)
+        res = multiBig(res, a);
+    return res;
+}
+
 int main()
 {
     freopen("task.in", "r", stdin);
-//    freopen("task.out", "w", stdout);
-    bigInteger a = getBig(), b = getBig();
-//    putBig(b);
+    freopen("task.out", "w", stdout);
+    bigInteger a, b;
+//    int b;
+    a = getBig();
+    b = getBig();
+//    scanf("%d", &b);
     putBig(subBig(a, b));
     return 0;
 }

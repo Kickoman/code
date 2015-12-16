@@ -6,12 +6,18 @@ using namespace std;
 
 typedef vector<int> bigInteger;
 
+bigInteger delZeros(bigInteger x)
+{
+    while (x.size() > 1 && x.back() == 0)
+        x.pop_back();
+    return x;
+}
+
 bigInteger getBig()
 {
     bigInteger res;
     string s;
     cin >> s;
-//    res.resize(s.size());
     for (int i = s.size() - 1; i > -1; --i)
         res.push_back(s[i] - '0');
     return res;
@@ -83,7 +89,7 @@ bigInteger multiBig(bigInteger a, bigInteger b)
 
 bigInteger subBig(bigInteger a, bigInteger b)
 {
-    bigInteger res(max(a.size(), b.size()));
+    bigInteger res(max(a.size(), b.size()), 0);
     int lng = max(a.size(), b.size());
     while (a.size() < lng)
         a.push_back(0);
@@ -92,17 +98,34 @@ bigInteger subBig(bigInteger a, bigInteger b)
     if (compBig(a, b) == -1)
         swap(a, b);
     if (compBig(a, b) == 0)
-        return ({0});
-    
+        return delZeros(res);
+    int cur = 0;
+    for (int i = 0; i < lng; ++i)
+    {
+        int tmp = 0;
+        a[i] -= cur;
+        cur = 0;
+        if (a[i] < b[i])
+            cur++,
+            a[i] += 10;
+        res[i] = a[i] - b[i];
+    }
+    return delZeros(res);
+}
+
+bigInteger bigPow(bigInteger a, int b)
+{
+    bigInteger res = {1};
+    for (int i = 0; i < b; ++i)
+        a r
 }
 
 int main()
 {
     freopen("task.in", "r", stdin);
     freopen("task.out", "w", stdout);
-    bigInteger a = getBig(), b = getBig();
-//    putBig(b);
+    bigInteger a, b;
+    a = getBig(), b = getBig();
     putBig(multiBig(a, b));
-    printf("\n%d\n", compBig(a, b));
     return 0;
 }
