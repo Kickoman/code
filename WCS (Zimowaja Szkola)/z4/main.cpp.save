@@ -37,7 +37,7 @@ int main()
     while (L < R)
     {
         int l = (L + R) / 2;
-        l = 3;
+        l = 2
         for (int i = 0; i < d.size(); ++i)
             d[i] = 0;
         int z = 1;
