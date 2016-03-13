@@ -30,6 +30,14 @@ inline void putBig(bigInteger x)
     return;
 }
 
+bigInteger iToBig(int x) // int to BigInteger
+{
+    bigInteger res;
+    for (; x; x /= 10)
+        res.push_back(x % 10);
+    return res;
+}
+
 bigInteger sumBig(bigInteger a, bigInteger b)
 {
     int lng = max(a.size(), b.size());
