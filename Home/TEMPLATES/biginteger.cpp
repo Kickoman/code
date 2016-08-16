@@ -1,9 +1,3 @@
-#include <iostream>
-#include <cstdio>
-#include <vector>
-
-using namespace std;
-
 typedef vector<int> bigInteger;
 
 bigInteger delZeros(bigInteger x)
@@ -127,17 +121,4 @@ bigInteger bigPow(bigInteger a, int b)
     for (int i = 0; i < b; ++i)
         res = multiBig(res, a);
     return res;
-}
-
-int main()
-{
-    freopen("task.in", "r", stdin);
-    freopen("task.out", "w", stdout);
-    bigInteger a, b;
-//    int b;
-    a = getBig();
-    b = getBig();
-//    scanf("%d", &b);
-    putBig(subBig(a, b));
-    return 0;
 }
