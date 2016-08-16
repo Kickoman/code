@@ -1,7 +1,7 @@
 // Algarytm dla pošuku minimalnych adlechłaściaŭ pamiž usimi viaršyniami u grafie.
 
 vector<vector<int>> g(n, vector<int>(n, INF)), // Matryca sumiežnaści
-					d(n, vector<int>(n, INF)), // Matryca dla Floyda
+                    d(n, vector<int>(n, INF)), // Matryca dla Floyda
                     p(n, vector<int>(n, -1));  // Matryca prodkaŭ
                  // p[x][y] - pieradapošniaja viaršynia na šlachu z 'x' u 'y'                    
 
