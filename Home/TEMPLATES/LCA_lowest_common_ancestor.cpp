@@ -7,7 +7,9 @@
 
 using namespace std;
 
-int lg, tm = 0;
+const int lg = 32; // Fix by Andrzej Bierlin
+
+int tm = 0;
 vector<vector<int> > tree, up;
 vector<int> tin, tout;
 
@@ -51,13 +53,12 @@ int main()
   cerr << "POCZATEK\n";
   int n, m;
   scanf("%d %d", &n, &m);
-  lg = (int) log(n);
   tree.resize(n);
   up.resize(n);
   tin.resize(n);
   tout.resize(n);
   for (int i = 0; i < (int) up.size(); ++i)
-    up[i].resize(lg);
+    up[i].resize(lg + 1);
   for (int i = 0; i < m; ++i)
   {
     int x, y;
