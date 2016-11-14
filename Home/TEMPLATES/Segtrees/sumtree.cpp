@@ -2,9 +2,8 @@ class sumtree
 {
 private:
     int n;
-public:
-
     vector<int> t;
+public:
     void build(vector<int> &v)
     {
         for (int i = n; i < 2 * n; ++i)
