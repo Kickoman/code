@@ -1,13 +1,13 @@
-// Algarytm dla pošuku minimalnych adlechłaściaŭ pamiž usimi viaršyniami u grafie.
+// Aĺgarytm dla pošuku minimaĺnych adliechlaściaŭ pamiž usimi viaršyniami u grafie.
 
 vector<vector<int>> g(n, vector<int>(n, INF)), // Matryca sumiežnaści
                     d(n, vector<int>(n, INF)), // Matryca dla Floyda
                     p(n, vector<int>(n, -1));  // Matryca prodkaŭ
-                 // p[x][y] - pieradapošniaja viaršynia na šlachu z 'x' u 'y'                    
+                 // p[x][y] - pieradapošniaja viaršynia na šliachu z 'x' u 'y'                    
 
 while (m--) // Čytańnie grafa 
 {
-	int a, b, c; // adkul, kudy, vaha
+	int a, b, c; // adkuĺ, kudy, vaha
 	scanf("%d %d %d", &a, &b, &c);
 	--a, --b;
 	if (c < g[a][b])
@@ -16,13 +16,13 @@ while (m--) // Čytańnie grafa
 		p[b][a] = b;
 }             
 
-d = g; // kab nie psavać aryginalnuju matrycu (NIE ABAVIAZKOVA)
+d = g; // kab nie psavać aryginaĺnuju matrycu (NIE ABAVIAZKOVA)
 
 for (int i = 0; i < n; ++i)
-	d[i][i] = INF; // 'ZANULAJEM' hałoŭnuju dyjaganal, kab paźbiehnuć pietlaŭ
+	d[i][i] = INF; // 'ZANULIAJEM' haloŭnuju dyjaganaĺ, kab paźbiehnuć pietliaŭ
 
 /* UVAHA! FLOYD! */
-// n - kolkaść viaršyniaŭ
+// n - koĺkaść viaršyniaŭ
 for (int l = 0; l < n; ++l)
 	for (int i = 0; i < n; ++i)
 		for (int j = 0; j < n; ++j)
@@ -32,13 +32,13 @@ for (int l = 0; l < n; ++l)
 
 // Voś i ŭvieś Floyd
 
-/* Daŭžynia minimalnaha šlachu z viaršyni s u viaršyniu t */
+/* Daŭžynia minimaĺnaha šliachu ź viaršyni s u viaršyniu t */
 int minimal_way_lng = d[s][t];
 
 
-/* Atrymać sam šlach: */
+/* Atrymać sam šliach: */
 vector<int> way;
-way.push_back(t); // t - numar finalnaje viaršyni
+way.push_back(t); // t - numar finaĺnaje viaršyni
 while (p[s][t] != s)
 {
 	way.push_back(p[s][t]),
@@ -46,8 +46,8 @@ while (p[s][t] != s)
 	cerr << t << " ";
 	if (t == -1)
 	{
-		cerr << "PAMYŁKA! BŁAD! ERROR!\n";
-		printf("\nPAMYŁKA\nPRAGRAMA SPYNIENAJA\n");
+		cerr << "PAMYLKA! BŁAD! ERROR!\n";
+		printf("\nPAMYLKA\nPRAGRAMA SPYNIENAJA\n");
 		return 1;
 	}
 }
