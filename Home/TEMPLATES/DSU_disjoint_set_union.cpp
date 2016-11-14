@@ -1,40 +1,42 @@
 /* 
     Systema niaźvazanych mnostvaŭ
-    Kod Artura z majim codestylam
 */
 
 class dsu
 {
+private:
+    vector<int> parent, rnk;
 public:
-    int n;  // Pamier masiva
-    vector<int> t;
-    vector<int> r;
-
-    int get(int x) 
+    void make(int n) // Builds a multiplicity of sets, n == number of nodes
     {
-        return t[x] == x ? x : t[x] = get(t[x]);
+        parent.resize(n);
+        rnk.resize(n, 0);
+        for (int i = 0; i < n; ++i)
+            parent[i] = i;
     }
 
-    int unite(int x, int y) 
+    int getSet(int v) // Gets the set, node V belongs to
     {
-        x = get(x);
-        y = get(y);
-        if (x == y) 
-            return 0;
-        if (r[x] <= r[y]) 
+        return (parent[v] == v ? v : parent[v] = getSet(parent[v]));
+    }
+
+    void uniteSet(int a, int b) // Unites set A and set B
+    {
+        a = getSet(a),
+        b = getSet(b);
+
+        if (a != b)
         {
-            t[x] = y;
-            r[y] += r[x] == r[y];
-        } else {
-            t[y] = x;
+            if (rnk[a] < rnk[b])
+                swap(a, b);
+            parent[b] = a;
+            if (rnk[a] == rnk[b])
+                ++rnk[a];
         }
-        return 1;
     }
 
-    dsu(int n):n(n),t()
+    dsu(int n)
     {
-        t.resize(n);
-        r.assign(n, 0);
-        for (int i = 0; i < n; i++) t[i] = i;
+        make(n);
     }
 };
