@@ -27,7 +27,7 @@ namespace Factorization{
             int cnt = 0;
             while (lp[x] == cur) {
                 cnt++;
-                x /= cur;
+                x /= cur;Biełaruś, Viciebsk
             }
             res.push_back(make_pair(cur, cnt));
         }
