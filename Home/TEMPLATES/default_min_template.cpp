@@ -116,6 +116,47 @@ template<typename _response> void die(_response ans)
     exit(0);
 }
 
+template<typename _response>
+void logger(_response info, int type) // text, type of log
+{
+#ifdef LOCAL
+    if (type == 1)
+    {
+        cerr << info << endl;
+    } else if (type == 2) {
+        cout << info << endl;
+    } else {
+        cerr << info << endl;
+        cout << info << endl;
+    }
+#endif // LOCAL
+}
+
+template<typename _response>
+void Error(_response errorcode)
+{
+    logger(errorcode, 3);
+    exit(228);
+}
+
+template<typename element>
+string itos(element x)
+{
+    string res;
+    if (x == 0)
+        return "0";
+    bool negative = false;
+    if (x < 0)
+        negative = true,
+        x *= -1;
+    while (x)
+        res = char(x % 10 + '0'),
+        x /= 10;
+    if (negative)
+        res = "-" + res;
+    return res;
+}
+
 int main()
 {
 //#ifdef LOCAL
