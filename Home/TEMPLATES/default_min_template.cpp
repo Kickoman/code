@@ -157,6 +157,24 @@ string itos(element x)
     return res;
 }
 
+int stoint(string s)
+{
+    bool negative = false;
+    if (s[0] == '-')
+        negative = true;
+    int res = 0;
+    for (int i = (negative ? 1 : 0); i < (int) s.size(); ++i)
+    {
+        if (s[i] < '0' || s[i] > '9')
+            Error("Fuck! '" + s + "' is not a number!\n");
+        res *= 10,
+        res += (int) s[i] - '0';
+    }
+    if (negative)
+        res *= -1;
+    return res;
+}
+
 int main()
 {
 //#ifdef LOCAL
