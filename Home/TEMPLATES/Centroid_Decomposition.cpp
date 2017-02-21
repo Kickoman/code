@@ -36,23 +36,9 @@ int findCentroid(int x) {
     return x;
 }
 
-void dfs(int v, int path, vector<int> &cnt, int p)
-{
-    cnt[path % 3]++;
-    for (auto to: g[v])
-    {
-        if (to.F == p || used[to.F]) continue;
-
-        dfs(to.F, path + to.S, cnt, v);
-    }
-}
-
 void solve(int x) {
     computeSize(x);
-    cerr << x << endl;
     x = findCentroid(x);
-
-    ll a = 0, b = 0, c = 0;
 
     // SOME CODE
 
