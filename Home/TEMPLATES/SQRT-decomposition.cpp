@@ -1,3 +1,10 @@
+/*
+    Maja realizacyja SQRT-dekampazicyi
+
+    Author: https://github.com/Kickoman
+*/
+
+
 #include <bits/stdc++.h>
 
 using namespace std;
