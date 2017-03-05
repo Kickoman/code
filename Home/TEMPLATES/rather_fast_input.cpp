@@ -4,14 +4,16 @@
 
 using namespace std;
 
-
 int readInt()
 {
     int res = 0;
     char c;
-    while ((c = getchar()) < '0' || c > '9');
+    while (!isdigit(c = getchar()) && c != EOF);
+    if (c == EOF)
+        return -228;
+
     res = c - '0';
-    while ((c = getchar()) >= '0' && c <= '9' && c != EOF)
+    while (isdigit(c = getchar()))
         res *= 10,
         res += (c - '0');
     return res;
@@ -21,36 +23,37 @@ long long readLong()
 {
     long long res = 0;
     char c;
-    while ((c = getchar()) < '0' || c > '9');
-    res = c - '0';
-    while ((c = getchar()) >= '0' && c <= '9' && c != EOF)
+    while (!isdigit(c = getchar()) && c != EOF);
+    if (c == EOF)
+        return -228;
+    while (isdigit(c = getchar()))
         res *= 10,
         res += (c - '0');
     return res;
 }
 
-double readDouble()
+long double readDouble()
 {
-    double res = 0;
+    long double res = 0;
     char c;
-    while ((c = getchar()) < '0' || c > '9');
+    while (!isdigit(c = getchar()) && c != EOF);
+    if (c == EOF)
+        return -228;
+
     res = c - '0';
-    while ((c = getchar()) >= '0' && c <= '9' && c != EOF)
+    while (isdigit(c = getchar()))
         res *= 10,
         res += (c - '0');
-    cerr << fixed << setprecision(10);
+        
     if (c == '.')
     {
-        double r = 0.1;
-        while ((c = getchar()) >= '0' && c <= '9' && c != EOF)
-        {cerr << res << endl;
+        long double r = 0.1;
+        while (isdigit(c = getchar()))  
             res += (c - '0') * r,
             r /= 10;
-            }
     }
     return res;
 }
-
 int main()
 {
     int a = readInt();
