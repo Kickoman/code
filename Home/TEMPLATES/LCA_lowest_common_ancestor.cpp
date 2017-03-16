@@ -13,7 +13,7 @@ int tm = 0;
 vector<vector<int> > tree, up;
 vector<int> tin, tout;
 
-void dfs(int v, int p)
+void dfs(int v, int p = 0)
 {
   tin[v] = ++tm;
   up[v][0] = p;
@@ -23,7 +23,7 @@ void dfs(int v, int p)
   for (int i = 0; i < (int) tree[v].size(); ++i)
     if (tree[v][i] != p)
       dfs(tree[v][i], v);
-  cerr << v << " " << p << endl;
+
   tout[v] = ++tm;
 }
 
@@ -68,7 +68,7 @@ int main()
     tree[y].pb(x);
   }
 
-  dfs(0, -1);
+  dfs(0);
 
   scanf("%d", &m);
   for (int i = 0; i < m; ++i)
