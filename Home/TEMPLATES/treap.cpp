@@ -73,6 +73,18 @@ void insert(treap *& t, int value)
     merge(l, r, t);
 }
 
+void erase(treap *& t, int key)
+{
+    // auto first = split(t, key);
+    // auto second = split(first.first, key - 1);
+    treap *a, *b;
+    split(t, a, b, key);
+    treap *c, *d;
+    split(a, c, d, key - 1);
+    merge(c, b, t);
+}
+
+
 int find(treap *t, int value)
 {
     if (t == nullptr)
@@ -98,11 +110,6 @@ void printTreap(treap *t)
     cout << t->key << " ";
     printTreap(t->r);
 }
-
-/*
-    Code is based on task "Next!"
-    CF number: %WILL_ADD_LATER%
-*/
 
 
 int main()
